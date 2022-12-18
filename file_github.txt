@@ -1,0 +1,2 @@
+從Github網站直接創建.txt檔案
+test~~
