@@ -1,0 +1,40 @@
+下載dlib和模型檔做人臉跟更詳細的偵測
+->模型檔:人臉辨識:dlib_face_recognition_resnet_model_v1.dat
+         CNN訓練的模型檔:mmod_human_face_detector.dat
+         人臉的特徵點:shape_predictor_5_face_landmarks.dat
+                      shape_predictor_68_face_landmarks.dat
+
+facedetect.py
+->利用上面模型檔圖片中的人臉
+
+faceimutils.py
+->利用imutils圖形處理找到68點特徵中各部位的範圍(眼睛、眉毛、嘴巴、下巴、鼻子)
+
+faceRecognition.py
+->計算兩張圖片的向量變數的歐式距離大小判斷是否為同一個人
+
+createsqlite.py
+->建立一個簡單的資料庫紀錄會員名字和圖片、以及後續紀錄登入成功的名字時間
+
+signupsqlite.py
+->建立會員名稱以及相對應的圖片，已經存在的會員就不重複紀錄
+
+loginsqlite.py
+->用攝像機拍攝照片在和會員名單中的圖片逐一比對計算歐式距離，以判斷能不能登入成功
+
+browsesqlite.py
+->了解歷史的登入資料的情況
+
+openmouth.py
+->利用imutils取的嘴巴的長寬比例來判斷有沒有張嘴
+
+checksleep.py
+->一樣利用眼睛的長寬比先在正常情況下建立個人的標準，只要有連續在標準下30次卻認為打瞌睡並發出警報
+
+
+物體追蹤->利用setMouseCallback在第一個frame中建立要追縱物體的方框，接著不斷更新frame來改變方框的位置
+->1.object_trace_camera.oy
+->追蹤攝像機中的物體
+->2.object_trace_video.oy
+->追蹤影片中的物體
+

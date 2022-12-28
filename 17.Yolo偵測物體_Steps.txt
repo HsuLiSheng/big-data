@@ -1,0 +1,27 @@
+下載CUDA、cuDNN、cmake、OpenCV、VS2017 or VS2019、darknet架構、msvcr100.dll、Yolo不同模型的權重檔案
+-->利用cmake編譯darknet原始程式(在VS中建置時可能會遇到CUDA、cuDNN、OpenCV版本的問題建置失敗，要在多去嘗試不同版本)
+-->得到darknet.exe檔案
+   (可以在cmd中偵測圖片物體) ***主要有組態檔、權重檔、圖片路徑
+   (也可以用python執行) 能偵測圖片、影片或是攝影機中的物體
+
+
+Yolo內建偵測80種物體，自行訓練別的偵測模型
+->用labelimg標記想偵測的圖片(此唯有沒有戴口罩) (每個圖片會有相對應的xml展示標記的內容)
+
+->從Kaggle找人家做好的圖片和標記檔當作訓練資料
+  複製圖片和轉換標記檔(PascalVOC -> Yolo(txt檔案))
+  format_change(voc2yolo).py
+  ->圖片和轉好的txt檔案存在yolodata中
+
+
+Yolo訓練有固的安排方式
+->makecfg.py
+->建立cfg資料夾裡面有.cfg組態檔案(更改裡面的batch subdivisions filters classes參數)、train.txt、valid.txt、obj.names(標籤種類名稱)、weights資料夾(存訓練權重)
+   除了組態檔外，用obj.data存其他變數的名稱(darknet會利用此檔的內容讀取資料和架構作訓練)
+
+用cmd進行訓練(有時會因為subdivisions的值而無法訓練，改到能跑的極限值就好)
+
+
+maskdemo.py
+->利用訓練好的權重把隨便一張口罩照片帶入看結果
+

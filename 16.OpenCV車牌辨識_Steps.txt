@@ -1,0 +1,20 @@
+1.resize.py
+->轉換圖片到300*225尺寸，以便讓haar_carplate.xml的模型能夠偵測
+->圖片存在predictPlate的資料夾中
+
+2.crop_carplate_number.py
+->擷取圖片中的車牌存成黑白圖片以便後續偵測輪廓
+->圖片存在cropPlate資料夾中
+
+3.cropone.py
+->把其中一個圖片的車牌解析並把每個文字拆解出來個別存檔
+->圖片存在cropone資料夾中
+
+4.assember carplate.py
+->把車牌中一些雜點、分隔符號、以及前後碼可能出現的畸零地消除後，重新組合在一個較大的圖形中，並變成白底黑字
+
+5.classification one carplate.py
+->把前面處理好的圖片帶入OCR中分析車牌得到結果
+
+6.classification all carplates.py
+->把4.和5.的程式結合在一起，得到每個車牌的結果
